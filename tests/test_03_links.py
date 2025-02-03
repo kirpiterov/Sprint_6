@@ -1,5 +1,4 @@
 import allure
-from data import TestData
 from pages.main_page import MainPage
 
 
@@ -10,7 +9,7 @@ class TestLinksFromOrderPage():
         main_page.click_order_button()
         main_page.click_logo_Scooter()
 
-        assert driver.current_url == TestData.base_url
+        assert main_page.check_current_page_is_main
 
     @allure.title('Тест перехода со страницы заказа на сайт Дзен по клику на логотип')
     def test_from_logo_to_page_Yandex(self,driver):
@@ -18,5 +17,5 @@ class TestLinksFromOrderPage():
         main_page.click_order_button()
         main_page.click_logo_Yandex()
 
-        assert driver.current_url == TestData.dzen_redirect_url
+        assert main_page.check_current_page_is_dzen_redirect
 

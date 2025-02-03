@@ -44,5 +44,11 @@ class MainPage(BasePage):
         actual_text = self.get_text_of_element(answer_locator)
         return actual_text
 
+    @allure.step('Проверяем, что текущая страница - главная')
+    def check_current_page_is_main(self):
+        return self.check_current_url(TestData.base_url)
 
+    @allure.step('Проверяем, что текущая страница - редирект на Дзен')
+    def check_current_page_is_dzen_redirect(self):
+        return self.check_current_url(TestData.dzen_redirect_url)
 
